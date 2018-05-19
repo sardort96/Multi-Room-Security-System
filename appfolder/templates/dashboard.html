@@ -1,0 +1,62 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %} Warehouse {% endblock %}
+{% block content %}
+
+  <div class="container-fluid">
+    <div class="row content">
+
+      <div class="col-sm-3 sidenav hidden-xs">
+        <h2>Sardor, Jacob</h2>
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="/dashboard">Warehouse</a></li>
+          <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        </ul><br>
+
+       <form class="form-signin" method="POST" action="/dashboard">
+          <h3 class="form-signin-heading">Start the system</h3>
+          {{ form.hidden_tag() }}
+          {{ wtf.form_field(form.power) }}
+          <button type="submit" class="btn btn-success btn-lg">Submit</button>
+        </form>
+          
+      </div>
+
+        
+        <div class="col-sm-9">
+          <br>
+          <div class="well">
+            <h4>Dashboard</h4>
+            
+            <p>Power is currently
+              <span class="badge badge-primary badge-pill">{% if form.power.data %} On {% else %} Off {% endif %}</span>
+            </p>          
+          </div>
+
+        {% for i in range(3) %}
+        <div class="row">
+          
+          {%for j in range(3) %}
+          
+          <div class="col-sm-4">
+            <div class="well">
+              <h4 class="text-center">
+              Room{% if i == 0 %} {{j + 1}} {% elif i == 1 %} {{j + 4}} {% else %} {{j + 7}} {% endif %}
+              {% if i == 0 and j == 0 and signal or i == 1 and j == 1 and signal2 %} 
+              <audio autoplay src="static/alarm.mp3"></audio>
+              <br> <h3 class="text-center">Burglar!</h3> {% endif %}
+              </h4>
+            </div>
+          </div>
+          
+          {%endfor%}
+          
+        </div>
+
+        {%endfor%}
+        
+        
+      </div>
+    </div>
+  </div>
+{% endblock %}
