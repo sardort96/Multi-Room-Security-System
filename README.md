@@ -3,6 +3,7 @@ The main purpose of this project was to develop a security system using two or m
 
 To test the functionality of our software, we practiced on a single Raspberry Pi connected to two Arduino sensors: Big Sound Sensor, and Water Detection Sensor. The following includes some background information on these sensors as well as how we used them to fulfill the purposes of our project.
 ## Sensors
-![](VeryProfessionalSensor-page-001.jpg)
-![](BigSoundSensor-page-001.jpg)
-![](BigSoundSensor-page-002.jpg)
+![](images/VeryProfessionalSensor-page-001.jpg)
+![](images/BigSoundSensor-page-001.jpg)
+![](images/BigSoundSensor-page-002.jpg)
+## Web Interface
